@@ -1,0 +1,59 @@
+{
+    "manifest_version": 3,
+    "name": "Tasogare-VPN",
+    "version": "1.1.0",
+    "description": "黄昏VPNであなたのPCを保護します",
+    "icons": {
+        "64": "images/tasogare_64.png",
+        "128": "images/tasogare_128.png",
+        "256": "images/tasogare_256.png"
+    },
+    "action": {
+        "default_icon": "images/tasogare_256.png",
+        "default_popup": "html/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://jp.pornhub.com/*", 
+                "https://www.pixiv.net//*", 
+                "https://movie.eroterest.net/*",
+                "https://vjav.com/*",
+                "https://mangaraw.ma/*",
+                "https://missav.com/*",
+                "https://example.com/*",
+                "https://mahjongsoul.com/*",
+                "https://poki.com/*",
+                "https://*.mangaraw.com/*",
+                "https://*.mangaraw.plus/*",
+                "https://*.mangaraw.ma/*",
+                "https://*.mangaraw.net/*",
+                "https://*.mangaraw.com/*",
+                "https://*.mangaraw.co.jp/*",
+                "https://*.mangaraw.ra/*",
+                "https://*.mangaraw.lo/*",
+                "https://*.youtube.com/*",
+                "https://*.chatgpt.com/*"
+            ],
+            "js": ["js/DOMcontent.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "audios/shit_voice.mp3",
+                "images/mark_batsu.png"
+            ],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "permissions": [
+        "tabs", 
+        "activeTab",
+        "proxy",
+        "storage"
+    ],
+    "background": {
+        "service_worker": "js/background.js"
+    }
+}
